@@ -68,7 +68,7 @@ Ex)
 
 ### 문법
 
-- 변수(데이터) / 연산자
+- 변수 / 데이터 / 연산자
 - 명령문(구문)
 - 함수
 - 배열/객체/class
@@ -198,4 +198,240 @@ String d = "hello" // String - 문자열 형태의 값을 변경할 수 있는 �
 +, *, /, -, %
 % : 나머지 계산
 Ex) 5 % 3 = 2
+
++ 연산자 활용
+5 + 5 =  10
+5 + 'a' = '5a' (연결연산)
+```
+
+> 비교 연산자
+>
+> - 결과값 : boolean(t/f)
+
+```
+== : 같다(크기)
+=== : 같다(크기, 타입)
+!= : 같지않다(크기)
+!== : 같지않다(크기, 타입)
+> : 크다
+< : 작다
+>= : 크거나 같다
+<= : 작거나 같다
+```
+
+> 논리 연산자
+>
+> - 결과값 : boolean(t/f)
+
+```
+&& : AND
+|| : OR ( | -> pipe)
+! : NOT
+
+a > 5 && a < 10 : a는 5보다 크고 10보다 작다
+a < 5 || a > 10 : a는 5보다 작거나 10보다 크다
+!(a < 5) : a가 5보다 작지 않다
+```
+
+> 산술 연산 + 할당 연산
+
+```
+a += 1 => a = a + 1
+=> 변수 += 값 : 값만큼 일정한 증가 연산
+
+a = a + 1;
+a += 1;
+a++; (증가연산)
+
+a = a - 1;
+a -= 1;
+a--; (감소연산)
+
+a++,a-- => 증감연산자
+```
+
+> 명령문(구문) : 프로그래밍 실행 흐름의 변화를 줄 수 있음
+>
+> - 분기문
+> - 반복문
+
+### JS Condition
+
+https://www.w3schools.com/js/js_if_else.asp
+
+> if : 조건문 / 분기문
+>
+> - 식의 결과값이 참이면 실행문 실행,
+
+```
+if(condition){
+  실행문
+}
+
+condition : 결과값이 boolean 데이터인 식
+
+if(a>10){} : a>10 => true/false
+
+if(a+1){} : a+1 => 음수, 0, 양수 : 0(false) / 정수(true)
+
+if(a){} : a => true / false or 0 / 정수
+
+if(true){}
+
+if(condition1) {
+  실행문1
+}else if(condition2){
+  실행문2
+}else{
+  실행문3
+}
+
+else if : 필요시 사용, 여러번 반복 사용 가능
+else : 필요시 사용, 마지막에 한번 사용 가능
+
+```
+
+### JS switch
+
+https://www.w3schools.com/js/js_switch.asp
+
+> switch : 분기문
+
+```
+switch(expresstion) {
+  case 결과값1:
+    실행문1;
+    break;
+  case 결과값2:
+    실행문2;
+    break;
+  default:
+    실행문3;
+}
+
+expresstion : 표현식, 결과값이 일반 데이터(숫자, 문자, 불리언)
+```
+
+### for loop (반복문)
+
+https://www.w3schools.com/js/js_loop_for.asp
+
+- for 반복문 : 반복 횟수를 정해서 반복 실행
+
+```
+for(statement1; statement2; statement3){
+
+}
+
+statement1 :  for 반복문 실행전 최소 1번 실행 구문
+statement2 :  코드블럭을 실행하기 위한 조건식 구문
+statement3 : 코드 블럭 실행 후 반복 실행되는 구문
+=> 3개의 statement는 반복횟수를 결정하는데 연관되는 구문
+
+for (let i = 0; i<3; i++){
+  console.log('반복실행');
+}
+
+0) let i = 0 구문실행 => i = 0
+
+1) i<3 비교식 실행 => true
+2) 코드블럭 실행(1)
+3) i++ 실행 => i = 1
+
+1') i<3 => true
+2') 코드블럭 실행(2)
+3') i++ => i=2
+
+1'') i<3 => true
+2'') 코드블럭 실행(3)
+3'') i++ => i = 3
+
+1''') i<3 => false
+반복 실행 종료
+
+```
+
+### break/ continue
+
+- break
+
+  - 루프 구문 바깥으로 빠져나가는 키워드(구문)
+
+- continue
+  - 해당 회차 실행을 건너뛰는 키워드(구문)
+
+### while
+
+- condition 이 true 일때만 반복실행하는 구문
+
+```
+while(condition){
+  실행문
+}
+```
+
+```
+while 사용 예 : 로그인
+
+** while(true){} => 무한루프
+whlie(true){
+
+  //로그인 시도
+  if( 입력한 아이디 === 저장된 db 아이디 && 입력한 비밀번호 === 저장된 db 비밀번호){
+    //로그인성공
+    break;
+  }
+}
+```
+
+### JS function
+
+https://www.w3schools.com/js/js_functions.asp
+
+> 함수
+>
+> - 여러 실행 코드들을 하나로 묶어주는 역할
+> - 특정 기능을 할 수 있는 코드 블럭 단위로 패키징
+> - 특정 기능을 재사용하기 위해서 함수를 사용
+
+> - 매개변수
+>   - 함수에 넣어주는 재료
+>   - 함수에 여러가지 매개변수를 넣어줌으로써 다양한 결과를 얻을 수 있음
+
+> - return(반환값)
+>   - 함수에서 처리된 결과 값
+>   - 함수를 호출한 쪽으로 결과값을 되돌려줌
+
+```
+1. 함수선언
+function 함수이름([매개변수]){
+  // 실행 코드 블럭
+  [리턴값]
+}
+
+
+2. 함수호출(실행)
+함수이름();
+
+** []: 생략가능
+```
+
+### JS Array(배열)
+
+https://www.w3schools.com/js/js_arrays.asp
+
+- 개수가 많은 데이터를 대표되는 하나의 변수 이름으로 저장할 때 사용하는 데이터 타입
+
+```
+배열 선언
+const cars = ['volvo','bmw','saab'];
+
+cars[0] => 'volvo'
+cars[1] => 'bmw'
+cars[2] => 'saab'
+
+배열 변경
+cars[0] = 'hyundai';
+
+
 ```

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>명령문</h1>
+  </body>
+  <script>
+    let a = 10;
+    if (a >= 10) {
+      console.log("10보다 크거나 같음");
+    } else if (a >= 5) {
+      console.log("5보다 크거나 같음");
+    } else {
+      console.log("5보다 작음");
+    }
+
+    let dateNumber = 0;
+    switch (dateNumber) {
+      case 0:
+        console.log("일");
+        break;
+      case 1:
+        console.log("월");
+        break;
+      case 2:
+        console.log("화");
+        break;
+      case 3:
+        console.log("수");
+        break;
+      case 4:
+        console.log("목");
+        break;
+      case 5:
+        console.log("금");
+        break;
+      case 6:
+        console.log("토");
+        break;
+      default:
+        console.log("날짜가 아님");
+    }
+    for (let i = 0; i < 3; i++) {
+      console.log("반복실행" + i);
+    }
+    for (let i = 0; i <= 10; i++) {
+      console.log(i);
+    }
+  </script>
+</html>
