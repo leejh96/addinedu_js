@@ -422,16 +422,77 @@ https://www.w3schools.com/js/js_arrays.asp
 
 - 개수가 많은 데이터를 대표되는 하나의 변수 이름으로 저장할 때 사용하는 데이터 타입
 
+- 배열도 객체데이터
+
 ```
 배열 선언
 const cars = ['volvo','bmw','saab'];
+
+// const 키워드를 사용해서 배열 선언시
+// 배열 데이터의 원소는 변경, 추가, 삭제 가능
+// 다른 배열 데이터로 변경은 불가능
+
+ex) cars['hyundai', 'chevrolet', 'kia'] (X)
+    cars[0] = 'hyundai' (O)
 
 cars[0] => 'volvo'
 cars[1] => 'bmw'
 cars[2] => 'saab'
 
-배열 변경
+배열 접근(access)/ 변경 / 추가 / 삭제
 cars[0] = 'hyundai';
+```
 
+### JS Object
 
+https://www.w3schools.com/js/js_objects.asp
+
+- 데이터들을 어떤 대상에 가깝게 다루고자 할 때
+- 객체데이터는 property, method
+- 각각의 객체데이터는 name:value로 구성됨(key:value)
+
+```
+객체 선언
+
+const car = {
+  type : 'Flat',
+  model : '500',
+  color : 'white'
+}
+
+객체 접근(access) / 추가 / 변경 / 삭제
+
+console.log(car.type);
+
+car.type = 'kia';
+
+추가
+car.weight = '850kg';
+
+삭제
+delete car.model;
+```
+
+### JS Class(클래스)
+
+https://www.w3schools.com/js/js_classes.asp
+
+> Class
+>
+> - 객체 데이터를 생성하기 위한 설계도
+> - 클래스를 사용해서 만든 객체 데이터 : Instance(인스턴스)
+> - 클래스 이름은 대문자로 시작
+
+```
+클래스 선언
+
+class Car{
+  constructor(name, year){ // 생성자 함수 => property 생성
+    this.name = name; // this.name : 객체 property 이름 name
+    this.year = year; // this.year : 객체 property 이름 year
+  }
+}
+
+let car1 = new Car('hyundai', 2021);
+let car2 = new Car('Kia', 2022);
 ```
