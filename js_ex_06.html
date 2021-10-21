@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>추가문법</h1>
+  </body>
+  <script>
+    var g1 = "g1";
+    let g2 = "g2";
+    const g3 = "g3";
+
+    function print() {
+      //함수 scope
+      var f1 = "f1";
+      let f2 = "f2";
+      const f3 = "f3";
+
+      // console.log(g1, g2, g3);
+
+      if (true) {
+        // 블럭 scope
+
+        var b1 = "b1";
+        let b2 = "b2";
+        const b3 = "b3";
+        // console.log(g1, g2, g3);
+        // console.log(f1, f2, f3);
+      }
+      // console.log(f1, f2, f3);
+    }
+    print();
+    for (let i = 0; i < 3; i++) {
+      var b4 = "b4";
+      let b5 = "b5";
+      const b6 = "b6";
+
+      // console.log(g1, g2, g3);
+      // console.log(f1, f2, f3);
+    }
+    // console.log(g1, g2, g3);
+    // console.log(f1, f2, f3);
+
+    // 일반 함수와 화살표 함수의 this 차이
+    // window 객체 : 브라우저에서 사용하는 최상위 객체 => 전역 객체
+    // 함수 this는 함수를 포함하고 있는 객체를 의미
+    //
+
+    function functionThis() {
+      console.log(this);
+    }
+    let arrowThis = () => {
+      console.log(this);
+    };
+
+    functionThis();
+    arrowThis();
+  </script>
+</html>

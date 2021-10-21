@@ -10,41 +10,31 @@
     <h1>배열 / 객체 / Class</h1>
   </body>
   <script>
-    const arr = ["saab", "bmw", "volvo"];
+    const car = {
+      type: "Flat",
+      model: 500,
+      color: "white",
+      fullName: function () {
+        return this.type + this.model;
+      }
+    };
 
-    console.log(arr);
-
-    arr[0] = "hyundai";
-    console.log(arr);
-
-    // const 키워드 사용해서 배열선언 시 원소의 값 변경 가능
-    for (let i = 0; i < 3; i++) {
-      console.log(arr[i]);
-    }
-    // 변경
-    car.type = "Kia";
-    console.log(car);
-    // console.log(car.type);
-
-    // 추가
-    car.weight = "850kg";
-    console.log(car);
-
-    // 삭제
-    delete car.model;
-    console.log(car);
+    console.log(car.fullName());
 
     class Car {
       constructor(name, year) {
         this.name = name;
         this.year = year;
       }
+      printYear() {
+        console.log(this.year);
+      }
     }
 
-    let car1 = new Car("hyundai", 2021);
-    let car2 = new Car("Kia", 2022);
+    let car1 = new Car("hyundai", "2021");
+    let car2 = new Car("bmw", "2022");
 
-    console.log(car1);
-    console.log(car2);
+    car1.printYear();
+    car2.printYear();
   </script>
 </html>

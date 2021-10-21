@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Dom Access</h1>
+    <p class="paragraph" id="para">단락</p>
+    <ul>
+      <li class="list-item">HTML</li>
+      <li class="list-item">CSS</li>
+      <li class="list-item">JS</li>
+    </ul>
+  </body>
+  <script>
+    // 객체 Access method
+
+    // HTML4 메소드 / API
+    console.log(document.getElementsByTagName("h1"));
+    console.log(document.getElementById("para"));
+    console.log(document.getElementsByClassName("para"));
+    console.log(document.getElementsByClassName("list-item"));
+
+    // HTML5 API
+    console.log(document.querySelector("h1"));
+    console.log(document.querySelector("#para"));
+    console.log(document.querySelector(".paragraph"));
+    console.log(document.querySelectorAll(".list-item"));
+  </script>
+</html>
