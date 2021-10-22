@@ -10,5 +10,26 @@
     <h1>HTML Element Create(동적 생성)</h1>
     <div class="parent"></div>
   </body>
-  <script></script>
+  <script>
+    // Text Contents 생성 추가 경우
+    // 1. HTML Element 동적 생성 => HTML Element 대상에 생성된 Element를 추가
+    // 2. Text 생성
+    // 3. 생성된 Element에 생성된 Text를 추가
+    // 4. HTML 문서에 있는 Element 대상에 생성된 Element를 추가
+
+    // Element 생성(1)
+    let pTag = document.createElement("p");
+
+    // Text 생성(2)
+    let text = document.createTextNode("Created Text Example");
+
+    // 생성된 Element에 생성된 Text를 추가(3)
+    pTag.appendChild(text);
+
+    // HTML 문서에 있는 대상에 추가(4)
+    const parent = document.querySelector(".parent");
+    parent.appendChild(pTag);
+
+    // 즉, 태그를 만들고, 콘텐츠를 만들고 태그에 콘텐츠를 넣고, HTML 문서에 특정부분에 만들어준 태그와 콘텐츠를 삽입
+  </script>
 </html>

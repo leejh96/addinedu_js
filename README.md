@@ -638,11 +638,96 @@ https://www.w3schools.com/js/js_events.asp
 > Create(생성)
 >
 > - DOM 생성 : Javascript에서 HTML Element 동적(Dynamic) 생성
+>
 >   - HTML 직접 코딩 => 정적 코딩
 >   - javascript로 HTML 코딩 => 동적 코딩
+>
+> - Text Contents 생성 추가 경우
+>
+>   - 1. HTML Element 동적 생성 => HTML Element 대상에 생성된 Element를 추가
+>   - 2. Text 생성
+>   - 3. 생성된 Element에 생성된 Text를 추가
+>   - 4. HTML 문서에 있는 Element 대상에 생성된 Element를 추가
+>
+>   - 즉, 태그를 만들고, 콘텐츠를 만들고 태그에 콘텐츠를 넣고, HTML 문서에 특정부분에 만들어준 태그와 콘텐츠를 삽입
+
+```
+// Element 생성(1)
+let pTag = document.createElement("p");
+
+// Text 생성(2)
+let text = document.createTextNode("Created Text Example");
+
+// 생성된 Element에 생성된 Text를 추가(3)
+pTag.appendChild(text);
+
+// HTML 문서에 있는 대상에 추가(4)
+const parent = document.querySelector(".parent");
+parent.appendChild(pTag);
+```
 
 > Read
 
+```
+// 첫 번째 방법(createTextNode)
+let paragraph = document.querySelector("p");
+let sen = paragraph.innerHTML + "문장";
+let text = document.createTextNode(sen);
+
+const parent = document.querySelector(".parent");
+parent.appendChild(text);
+
+
+// 두 번째 방법(innerHTML)
+const parent2 = document.querySelector(".parent2");
+parent2.innerHTML = paragraph.innerHTML + "추가된 내용";
+```
+
 > Update
 
+```
+// innerHTML 사용
+const paragraph = document.querySelector(".paragraph");
+paragraph.innerHTML = "변경된 단락";
+```
+
 > Delete
+
+```
+//text만 제거
+const para = document.querySelector(".paragraph");
+para.innerHTML = "5";
+
+//태그까지 제거(제거할 대상의 부모 요소를 통해서 제거)
+const body = document.querySelector("body");
+const para2 = document.querySelector(".paragraph2");
+body.removeChild(para2);
+```
+
+### Form 요소
+
+https://www.w3schools.com/html/html_forms.asp
+
+- 클라이언트에서 작성한 내용을 서버에 전달할 때 사용하는 Element
+
+> input
+>
+> - type='text'
+> - type='button' / type="submit" / type='reset'
+
+> button
+>
+> - input type button 과 사용 형식이 거의 같음
+> - type="button" / type="submit" / type="reset"
+
+```
+<input type='button' value="버튼" /> // 일반 텍스트만 버튼 안에 넣을 수 있음
+<button type='button'>버튼</button> // 이미지나 애니메이션을 버튼으로 변경할 수 있음
+
+** 기능의 차이는 없음
+** 활용도 측면에서 button 태그를 사용하는 것을 권장
+```
+
+> select
+>
+> - 숨겨진 목록에서 아이템 선택

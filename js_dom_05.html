@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Delete</h1>
+    <p class="paragraph">단락</p>
+    <p class="paragraph2">단락2</p>
+  </body>
+  <script>
+    //text만 제거
+    const para = document.querySelector(".paragraph");
+    para.innerHTML = "5";
+
+    //태그까지 제거
+    const body = document.querySelector("body");
+    const para2 = document.querySelector(".paragraph2");
+    body.removeChild(para2);
+  </script>
+</html>
