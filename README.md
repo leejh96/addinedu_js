@@ -416,6 +416,25 @@ function 함수이름([매개변수]){
 ** []: 생략가능
 ```
 
+```
+함수 선언 형식
+function 함수이름(){
+  // 코드블럭
+}
+
+let(const) 변수이름(함수이름) = function(){
+  // 코드블럭
+}
+
+익명함수
+function(){
+  // 코드블럭
+}
+
+- 함수이름을 변수처럼 사용하는 경우
+- 함수이름 필요없이 바로 실행하는 경우
+```
+
 ### JS Array(배열)
 
 https://www.w3schools.com/js/js_arrays.asp
@@ -440,7 +459,16 @@ cars[1] => 'bmw'
 cars[2] => 'saab'
 
 배열 접근(access)/ 변경 / 추가 / 삭제
+
+변경
 cars[0] = 'hyundai';
+
+추가
+cars.push('kia'); => 마지막 위치에 원소 추가
+
+삭제
+cars.pop(); => 마지막 원소 삭제
+
 ```
 
 ### JS Object
@@ -469,6 +497,7 @@ const car = {
 
 console.log(car.type);
 
+변경
 car.type = 'kia';
 
 추가

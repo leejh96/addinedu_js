@@ -6,45 +6,206 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
     <style>
-      dl{
+      dl {
         margin: 0;
         padding: 20px;
-        width : 300px;
+        width: 500px;
       }
-      dt{
-        border-bottom : 1px solid #555555; /* #555555 = #555 / #33ddaa = #3da */
-        margin-bottom : 30px;
+      dt {
+        border-bottom: 1px solid #555555; /* #555555 = #555 / #33ddaa = #3da */
+        margin-bottom: 30px;
         padding: 10px;
       }
-      dd{
-        margin : 0;
-      }
-      ol{
+      dd {
         margin: 0;
-        padding: 0;
-        list-style-type : none;
+      }
+      ol {
+        margin: 0;
+        padding: 20px;
+        list-style-type: none;
+        border: 1px solid orange;
+      }
+      .list-item {
+        padding: 20px;
+        border: 1px solid #eee;
+        margin-bottom: 10px;
+        display: flex;
+      }
+      .list-number {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-right: 10px;
+      }
+      .list-tag {
+        border: 1px solid #ddd;
+        padding: 10px;
+      }
+      .edit-list {
+        border: 1px solid orange;
+        padding: 20px;
+        margin-bottom: 10px;
+      }
+      .edit-item {
+        border: 1px solid #eee;
+        padding: 10px;
+        display: flex;
+      }
+      .input-text {
+        width: 100px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: block;
+        margin-right: 10px;
+      }
+      .btn {
+        width: 100px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: block;
+        margin-right: 10px;
+      }
+      .element-all {
+        border: 1px solid #aaa;
+        width: 300px;
+        line-height: 30px;
+        overflow: auto;
+      }
+      .element-all > span {
+        /* classr가 element-all인 요소에 자식요소인 span을 선택 */
+        margin: 0 5px;
       }
     </style>
   </head>
   <body>
     <h1>목록 CRUD</h1>
-
     <dl class="contents">
       <dt>HTML Sementic Element 목록</dt>
       <dd>
+        <form class="edit-list">
+          <div class="edit-item">
+            <input type="text" name="" id="" class="input-text element-text" />
+            <button type="button" class="btn button-create">추가</button>
+            <button type="reset" class="btn">초기화</button>
+          </div>
+          <div class="edit-item">
+            <button type="button" class="btn button-read">전체내용표시</button>
+            <div class="element-all"></div>
+          </div>
+          <div class="edit-item">
+            <input type="text" class="input-text element-number" />
+            <input type="text" class="input-text element-modify" />
+            <button type="button" class="btn button-update">수정</button>
+            <button type="reset" class="btn">초기화</button>
+          </div>
+          <div class="edit-item">
+            <input type="text" class="input-text element-delete-number" />
+            <button type="button" class="btn button-delete">삭제</button>
+            <button type="reset" class="btn">초기화</button>
+          </div>
+        </form>
+      </dd>
+      <dd>
         <ol class="list">
           <li class="list-item">
-            <span class='list-number'>1</span> <span class="list-tag">header<span>
-          </li>
-          <li class="list-item">        
-            <span class='list-number'>2</span> <span class="list-tag">footer<span>
+            <span class="list-number">1</span>
+            <span class="list-tag">header</span>
           </li>
           <li class="list-item">
-            <span class='list-number'>3</span> <span class="list-tag">section<span>
+            <span class="list-number">2</span>
+            <span class="list-tag">footer</span>
+          </li>
+          <li class="list-item">
+            <span class="list-number">3</span>
+            <span class="list-tag">section</span>
           </li>
         </ol>
       </dd>
     </dl>
   </body>
-  <script></script>
+  <script>
+    //create
+    const buttonCreate = document.querySelector(".button-create");
+    const list = document.querySelector(".list");
+
+    buttonCreate.addEventListener("click", () => {
+      let listItemElement = document.createElement("li");
+      const listItemLength = document.querySelectorAll("li").length + 1;
+
+      let listNumberElement = document.createElement("span");
+      let listTagElement = document.createElement("span");
+      let elementText = document.querySelector(".element-text");
+
+      //class 지정
+      //listNumberElement.classList.add('list-number)
+      listItemElement.className = "list-item";
+      listNumberElement.className = "list-number";
+      listTagElement.className = "list-tag";
+
+      //span에 text넣기
+      // listNumberElement.innerHTML = listItemsLength;
+      let number = document.createTextNode(listItemLength);
+      listNumberElement.appendChild(number);
+
+      //span에 text넣기
+      // listTagElement.innerHTML = elementText.value;
+      let text = document.createTextNode(elementText.value);
+      listTagElement.appendChild(text);
+
+      //li에 span 넣기
+      listItemElement.appendChild(listNumberElement);
+      listItemElement.appendChild(listTagElement);
+
+      //ol안에 li넣기
+      list.appendChild(listItemElement);
+    });
+    //read
+    const buttonRead = document.querySelector(".button-read");
+    const showAll = document.querySelector(".element-all");
+
+    buttonRead.addEventListener("click", () => {
+      let textAll = document.querySelectorAll(".list-tag");
+      // let text = '';
+      showAll.innerHTML = "";
+      for (let i = 0; i < textAll.length; i++) {
+        let elementNode = document.createElement("span");
+        console.log(textAll[i]);
+        let textNode = document.createTextNode(textAll[i].innerHTML);
+
+        elementNode.appendChild(textNode);
+        showAll.appendChild(elementNode);
+        // text += textAll[i].innerHTML + " "
+      }
+      // showAll.innerHTML = text;
+    });
+    //update
+    const buttonUpdate = document.querySelector(".button-update");
+    buttonUpdate.addEventListener("click", () => {
+      // input 입력된 값 읽어오기
+      let modifyNumber = document.querySelector(".element-number").value - 1;
+      let modifyText = document.querySelector(".element-modify").value;
+
+      const listTag = document.querySelectorAll(".list-tag");
+
+      listTag[modifyNumber].innerHTML = modifyText;
+    });
+
+    //delete
+    const buttonDelete = document.querySelector(".button-delete");
+    const deleteList = document.querySelector(".list");
+    buttonDelete.addEventListener("click", () => {
+      let deleteNumber =
+        document.querySelector(".element-delete-number").value - 1;
+      const listItem = document.querySelectorAll(".list-item");
+      deleteList.removeChild(listItem[deleteNumber]);
+
+      // 데이터 삭제시 인덱스 번호의 매칭이 변경되지 않아야 함
+      // 1. 재배열
+      // 2. 고유 인덱스 번호 => 번호 변경 x
+
+      let listNumber = document.querySelectorAll(".list-number");
+      for (let i = 0; i < listItem.length; i++) {
+        listNumber[i].innerHTML = i + 1;
+      }
+    });
+  </script>
 </html>

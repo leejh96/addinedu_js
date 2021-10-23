@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(() => {
+        console.log($("h1"));
+        console.log($(".item"));
+        console.log(document.querySelectorAll(".list"));
+        $(".parent").append("<p>Create Text</p>");
+
+        let number = 1;
+        let tag = "header";
+
+        let addList = '<li class="list-item">';
+        addList += "<span class='list-number'>" + number + "</span>";
+        addList += "<span class='list-tag'>" + tag + "</span>";
+        addList += "</li>";
+
+        let asd = `<li>
+          <span>sdf</span>
+          <span>ssddf</span>
+        </li>`;
+
+        $(".list").append(addList);
+        $(".list").append(asd);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>jquery</h1>
+    <ul class="list">
+      <li class="item">HTML</li>
+      <li class="item">CSS</li>
+      <li class="item">JS</li>
+    </ul>
+    <div class="parent"></div>
+  </body>
+</html>
